@@ -26,7 +26,7 @@ namespace CSharpConcepts
                 case ConsoleKey.D1: Console.WriteLine("1 was pressed , 3 examples of Func will get executed"); Funcexample.FuncExample(); break;
                 case ConsoleKey.D2: Console.WriteLine("2 was pressed"); break;
                 case ConsoleKey.D0: Console.WriteLine("0 was pressed"); Environment.Exit(-1); break;
-                default: Console.WriteLine("Enter valid input!!!"); break;
+                default: Console.WriteLine("Provide valid input!!!"); break;
             }
         }
 

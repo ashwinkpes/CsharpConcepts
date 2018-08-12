@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CSharpConcepts
 {
     internal class Funcexample
     {
-        public static void FuncExample()
+        internal static void FuncExample()
         {
             Console.WriteLine("Enter value between 1- 10");
             string input = Console.ReadLine();
@@ -14,18 +12,25 @@ namespace CSharpConcepts
             int number;
             bool result = Int32.TryParse(input, out number);
 
-            if (result)
+            if (result && (number >= 1 && number <= 10))
             {
+                //Example -1 ---Func - Gets 3 times of the number.     
                 int res = GetThreeTimesNumber(number, DoubletheNumber);
                 Console.WriteLine($"Three times of the number is  {res}");
-            }            
 
-            //Example - 2 ---Func - Gets Reverse name.           
-            var reverseName = GetCompleteName(1, s => GetReverseName(s.fname, s.sname));
-            Console.WriteLine($"The Reverse Name is {reverseName}");
+                //Example - 2 ---Func - Gets Reverse name.           
+                var reverseName = GetCompleteName(1, s => GetReverseName(s.fname, s.sname));
+                Console.WriteLine($"The Reverse Name is {reverseName}");
 
-            //Example - 3 ---Func - Gets complete name.            
-            ValidateUser();
+                //Example - 3 ---Func - Gets complete name.            
+                ValidateUser();
+            }
+            else
+            {
+                Console.WriteLine("Invalid input!!!");
+            }           
+
+          
         }
 
         private static int GetThreeTimesNumber(int userInput, Func<int, int> secondInput)
@@ -53,12 +58,6 @@ namespace CSharpConcepts
         {
 
             return (sname + " " + fname).ToUpper();
-        }
-
-        public class student
-        {
-            public string fname { get; set; }
-            public string sname { get; set; }
         }
 
         private static void ValidateUser()
